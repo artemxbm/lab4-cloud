@@ -25,9 +25,9 @@ data = pd.concat([usd_df, eur_df], axis=1)
 data.to_csv('rates_2021.csv')
 
 s3 = boto3.client('s3')
-s3.upload_file('rates_uah_2021.csv', 'cloudlab-bucket', 'rates_uah_2021.csv')
+s3.upload_file('rates_2021.csv', 'xbm-bucket', 'rates_2021.csv')
 
-s3.download_file('art-bucket', 'rates_2021.csv', 'rates_2021.csv')
+s3.download_file('xbm-bucket', 'rates_2021.csv', 'rates_2021.csv')
 df = pd.read_csv('rates_2021.csv')
 df.plot(x='exchangedate', y=['rate_usd', 'rate_eur'], rot=45, title='rates 2021')
 plt.savefig('graph.png')
