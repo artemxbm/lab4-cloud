@@ -1,0 +1,5 @@
+pandas==1.2.4
+requests==2.18.4
+boto3==1.26.126
+json==3.9
+matplotlib==3.7.1
